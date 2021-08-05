@@ -1,6 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Threading;
 
 namespace PM7V1
 {
@@ -92,14 +90,23 @@ namespace PM7V1
         {
 
             p1.Login("cpbm@centurypaper.com", "centurypaper");
+            /*
+                        p1.Clicksetup();
+                        p1.Click_product();
+                        Thread.Sleep(2000);
+                        p1.Setup_addproduct("test");
+                        Thread.Sleep(2000);
+                        p1.Setup_search("test");
+                        Thread.Sleep(5000);
+                        p1.Setup_delete();
+            */
 
             p1.Clicksetup();
-            Thread.Sleep(2000);
-            p1.Setup_addproduct("test");
-            Thread.Sleep(2000);
-            p1.Setup_search("test");
-            Thread.Sleep(5000);
-            p1.Setup_delete();
+            p1.Clickjobcard();
+            p1.Jobcard_fromdate("10", "Jun", "2022");
+            p1.Jobcard_todate("20", "Aug", "2023");
+            p1.jobcard_search();
+
 
         }
     }

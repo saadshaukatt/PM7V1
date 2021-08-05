@@ -41,12 +41,17 @@ namespace PM7V1
             dr.FindElement(By.Id("btnLogin")).Click();
         }
 
-
+        //-------------------//
         public void Clicksetup()
         {
             dr.FindElement(By.CssSelector("ul#side-menu>li:nth-of-type(4)>a")).Click();
             Thread.Sleep(2000);
+        }
+
+        public void Click_product()
+        {
             dr.FindElement(By.LinkText("Product")).Click();
+
         }
         public void Setup_search(string name)
         {
@@ -93,6 +98,63 @@ namespace PM7V1
             action.SendKeys(Keys.Enter).Perform();
 
         }
+
+        //-----------------//
+
+        public void Clickjobcard()
+        {
+            dr.FindElement(By.LinkText("Job Card")).Click();
+
+       
+
+        }
+
+        public void Jobcard_fromdate(string day , string month , string year )
+        {
+
+            dr.FindElement(By.Id("MainContent_txtDate")).Click();
+              
+
+            dr.FindElement(By.XPath("(//th[@class='datepicker-switch'])[1]")).Click();
+            dr.FindElement(By.XPath("(//th[@class='datepicker-switch'])[2]")).Click();
+
+
+
+            dr.FindElement(By.XPath("//span[text()='"+ year + "']")).Click();
+
+            dr.FindElement(By.XPath("//span[text()='" + month + "']")).Click();
+
+            dr.FindElement(By.XPath("(//td[@class='day'])[" + day + "]")).Click();
+
+
+        }
+
+
+        public void Jobcard_todate(string day, string month, string year)
+        {
+
+            dr.FindElement(By.Id("MainContent_txtToDate")).Click();
+
+
+            dr.FindElement(By.XPath("(//th[@class='datepicker-switch'])[1]")).Click();
+            dr.FindElement(By.XPath("(//th[@class='datepicker-switch'])[2]")).Click();
+
+
+
+            dr.FindElement(By.XPath("//span[text()='" + year + "']")).Click();
+
+            dr.FindElement(By.XPath("//span[text()='" + month + "']")).Click();
+
+            dr.FindElement(By.XPath("(//td[@class='day'])[" + day + "]")).Click();
+
+
+        }
+
+        public void jobcard_search()
+        {
+            dr.FindElement(By.Id("MainContent_btnSearch")).Click();
+        }
+
 
     }
 }
