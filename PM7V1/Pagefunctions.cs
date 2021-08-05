@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,16 +74,22 @@ namespace PM7V1
             dr.FindElement(By.ClassName("confirm")).Click();
             
             action.SendKeys(Keys.Escape).Perform();
-            
+            Thread.Sleep(2000);
+            dr.Navigate().Refresh();
         }
 
 
         public void Setup_delete()
         {
             Actions action = new Actions(dr);
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(6));
+            wait.Until(ExpectedConditions.ElementExists(By.Id("MainContent_rptClientAdd_btnDelete_0")));
 
-            dr.FindElement(By.Id("MainContent_rptClientAdd_btnDelete_0")).Click();
-           // dr.FindElement(By.Id("MainContent_btnOk")).Click();
+
+            IWebElement xbtn = dr.FindElement(By.Id("MainContent_rptClientAdd_btnDelete_0"));
+            xbtn.Click();
+            Thread.Sleep(2000);
+            dr.FindElement(By.Id("MainContent_btnOk")).Click();
             action.SendKeys(Keys.Enter).Perform();
 
         }

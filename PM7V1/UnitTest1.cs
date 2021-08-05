@@ -96,7 +96,9 @@ namespace PM7V1
             p1.Clicksetup();
             Thread.Sleep(2000);
             p1.Setup_addproduct("test");
+            Thread.Sleep(2000);
             p1.Setup_search("test");
+            Thread.Sleep(5000);
             p1.Setup_delete();
 
         }
